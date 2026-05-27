@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { loginUser, registerUser } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -8,11 +9,15 @@ const LoginPage = () => {
   const [name, setName] = useState("");
   const [isLogin, setIsLogin] = useState(true);
 
+  const navigate = useNavigate();
+
   // <-- handleLogin -->
   const handleLogin = async () => {
     try {
       const response = await loginUser(email, password);
       console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      navigate("/upload");
       alert("Login Successful");
     } catch (error) {
       if (error.response) {
@@ -23,6 +28,7 @@ const LoginPage = () => {
     }
   };
 
+  // <-- Handle Register-->
   const handleRegister = async () => {
     try {
       const response = await registerUser(name, email, password, phoneNumber);

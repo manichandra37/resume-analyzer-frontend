@@ -12,12 +12,24 @@ export const registerUser = (name, email, password, phoneNumber) => {
   return API.post("/auth/register", { name, email, password, phoneNumber });
 };
 
-
-// This runs before every request
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  // Don't attach token to login/register requests
+  if (!config.url.includes("/auth/")) {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
   }
   return config;
 });
+
+// Uploads a resume file to the backend
+// FormData is a browser API that lets you send files over HTTP
+// "multipart/form-data" tells the server "this request contains a file, not JSON"
+export const uploadResume = (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  return API.post("/resumes/upload", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+};
