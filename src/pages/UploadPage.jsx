@@ -5,19 +5,12 @@ import { useNavigate } from "react-router-dom";
 function UploadPage() {
   const [file, setFile] = useState(null);
 
-//   const navigate = useNavigate();
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     navigate("/");
-//   };
-
   const handleUpload = async () => {
     try {
       const response = await uploadResume(file);
       alert("Upload Successful");
-      setUploadFile(file);
-      navigate("/dashboard");
+      setFile(file);
+      window.location.href = "/analysis";
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);

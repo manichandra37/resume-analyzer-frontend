@@ -59,12 +59,7 @@ const DashboardPage = () => {
     "My code review feedback: 'Looks good to me.' Translation: I didn't read it.",
     "Stack Overflow should count as a co-author on my resume.",
   ];
-//   const navigate = useNavigate();
 
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     navigate("/");
-//   };
   const getRandomJoke = () => {
     return jokes[Math.floor(Math.random() * jokes.length)];
   };
@@ -157,7 +152,6 @@ const DashboardPage = () => {
       <button onClick={handleAnalysis} disabled={loading}>
         {loading ? "Analyzing..." : "Analyze"}
       </button>
-      <button onClick={handleDownload}>Download Improved Resume</button>
       {loading && (
         <div>
           <h2>Analyzing your resume...</h2>
@@ -189,6 +183,7 @@ const DashboardPage = () => {
 
           <h3>Improved Content</h3>
           <p>{report.improvedContent}</p>
+          <button onClick={handleDownload}>Download Improved Resume</button>
         </div>
       )}{" "}
     </div>
