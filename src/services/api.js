@@ -33,3 +33,22 @@ export const uploadResume = (file) => {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
+
+// Get all resumes uploaded by the logged-in user
+export const getMyResumes = () => {
+  return API.get("/resumes/My-resumes");
+};
+
+// Analyze a resume against a job description
+// resumeId: which resume to analyze
+// jobDescription: the job posting text
+// templateType: "service", "product", or "hybrid"
+export const analyzeResume = (resumeId, jobDescription, templateType) => {
+  return API.post(`/resumes/${resumeId}`, { jobDescription, templateType });
+};
+
+export const downloadResume = (reportId) => {
+  return API.get(`/resumes/generate/${reportId}`, {
+    responseType: "blob",
+  });
+};

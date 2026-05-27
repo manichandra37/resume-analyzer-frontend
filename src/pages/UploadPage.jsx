@@ -3,12 +3,14 @@ import { uploadResume } from "../services/api";
 
 function UploadPage() {
   const [file, setFile] = useState(null);
+  
 
   const handleUpload = async () => {
     try {
       const response = await uploadResume(file);
       alert("Upload Successful");
       setUploadFile(file);
+      navigate("/dashboard");
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
