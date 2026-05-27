@@ -17,7 +17,7 @@ const LoginPage = () => {
       const response = await loginUser(email, password);
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
-      navigate("/upload");
+      window.location.href = "/upload";
       alert("Login Successful");
     } catch (error) {
       if (error.response) {

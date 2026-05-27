@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { analyzeResume, downloadResume, getMyResumes } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const DashboardPage = () => {
   const [resumes, setResumes] = useState([]);
@@ -58,7 +59,12 @@ const DashboardPage = () => {
     "My code review feedback: 'Looks good to me.' Translation: I didn't read it.",
     "Stack Overflow should count as a co-author on my resume.",
   ];
+//   const navigate = useNavigate();
 
+//   const handleLogout = () => {
+//     localStorage.removeItem("token");
+//     navigate("/");
+//   };
   const getRandomJoke = () => {
     return jokes[Math.floor(Math.random() * jokes.length)];
   };

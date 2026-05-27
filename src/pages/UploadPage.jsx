@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { uploadResume } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 function UploadPage() {
   const [file, setFile] = useState(null);
-  
+
+//   const navigate = useNavigate();
+
+//   const handleLogout = () => {
+//     localStorage.removeItem("token");
+//     navigate("/");
+//   };
 
   const handleUpload = async () => {
     try {

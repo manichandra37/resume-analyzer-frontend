@@ -3,10 +3,12 @@ import LoginPage from "./pages/LoginPage";
 import UploadPage from "./pages/UploadPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import NavBar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+     <NavBar />
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route
@@ -29,5 +31,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
