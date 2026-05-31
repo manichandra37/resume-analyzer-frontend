@@ -46,10 +46,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex items-center justify-center bg-[#faf6f1]">
       {isLogin ? (
         <div>
           <h1>Login</h1>
+          <h1 className="">Login</h1>
           <input
             type="text"
             placeholder="Email"
