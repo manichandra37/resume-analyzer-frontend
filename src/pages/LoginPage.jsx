@@ -47,67 +47,85 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#faf6f1]">
-      {isLogin ? (
-        <div>
-          <h1>Login</h1>
-          <h1 className="">Login</h1>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <br />
-          <button onClick={handleLogin}>Login</button>
-        </div>
-      ) : (
-        <div>
-          <h1>Register</h1>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <br></br>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br></br>
-          <input
-            type="text"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br></br>
-          <input
-            type="text"
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-          <br></br>
-          <button onClick={handleRegister}>Register</button>
-        </div>
-      )}
-      <button onClick={() => setIsLogin(!isLogin)}>
-        {isLogin
-          ? "Don't have an account? Register"
-          : "Already have an account? Login"}
-      </button>
+      <div className="bg-white rounded-2xl shadow-lg p-10 w-full max-w-md">
+        <h1 className="text-3xl font-['Playfair_Display'] text-[#2d3a2e] text-center mb-2">
+          {isLogin ? "Welcome back" : "Create account"}
+        </h1>
+        <p className="text-center text-gray-400 text-sm mb-8">
+          {isLogin ? "Login to analyze your resume" : "Sign up to get started"}
+        </p>
+
+        {isLogin ? (
+          <>
+            <input
+              className="w-full p-3 border border-gray-200 rounded-xl mb-4 outline-none focus:border-[#3d5a3e]"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="w-full p-3 border border-gray-200 rounded-xl mb-4 outline-none focus:border-[#3d5a3e]"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition"
+              onClick={handleLogin}
+            >
+              Login
+            </button>
+          </>
+        ) : (
+          <>
+            <input
+              className="w-full p-3 border border-gray-200 rounded-xl mb-4 outline-none focus:border-[#3d5a3e]"
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              className="w-full p-3 border border-gray-200 rounded-xl mb-4 outline-none focus:border-[#3d5a3e]"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="w-full p-3 border border-gray-200 rounded-xl mb-4 outline-none focus:border-[#3d5a3e]"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              className="w-full p-3 border border-gray-200 rounded-xl mb-4 outline-none focus:border-[#3d5a3e]"
+              type="tel"
+              placeholder="Phone Number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <button
+              className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition"
+              onClick={handleRegister}
+            >
+              Register
+            </button>
+          </>
+        )}
+
+        <button
+          className="w-full mt-4 text-[#3d5a3e] text-sm hover:underline"
+          onClick={() => setIsLogin(!isLogin)}
+        >
+          {isLogin
+            ? "Don't have an account? Register"
+            : "Already have an account? Login"}
+        </button>
+      </div>
     </div>
   );
 };

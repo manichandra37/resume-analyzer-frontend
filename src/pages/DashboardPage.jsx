@@ -122,70 +122,119 @@ const DashboardPage = () => {
   };
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <select
-        value={selectedResumeId}
-        onChange={(e) => setSelectedResumeId(e.target.value)}
-      >
-        <option value=""> Select a Resume</option>
-        {resumes.map((r) => (
-          <option key={r.id} value={r.id}>
-            {r.resumeName}
-          </option>
-        ))}
-      </select>
-      <textarea
-        placeholder="Paste job description here"
-        value={jobDescription}
-        onChange={(e) => setJobDescription(e.target.value)}
-      />
-      <select
-        value={templateType}
-        onChange={(e) => setTemplateType(e.target.value)}
-      >
-        <option value="">Select Template</option>
-        <option value="service">Service</option>
-        <option value="product">Product</option>
-        <option value="hybrid">Hybrid</option>
-      </select>
-      <button onClick={handleAnalysis} disabled={loading}>
-        {loading ? "Analyzing..." : "Analyze"}
-      </button>
+    <div className="min-h-screen bg-[#faf6f1] p-8">
+      <h1 className="text-4xl font-['Playfair_Display'] text-[#2d3a2e] text-center mb-8">
+        Dashboard
+      </h1>
+
+      <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto mb-8">
+        <select
+          className="w-full p-3 border border-gray-200 rounded-xl mb-4"
+          value={selectedResumeId}
+          onChange={(e) => setSelectedResumeId(e.target.value)}
+        >
+          <option value="">Select a Resume</option>
+          {resumes.map((r) => (
+            <option key={r.id} value={r.id}>
+              {r.resumeName}
+            </option>
+          ))}
+        </select>
+
+        <textarea
+          className="w-full p-3 border border-gray-200 rounded-xl mb-4 h-40"
+          placeholder="Paste job description here"
+          value={jobDescription}
+          onChange={(e) => setJobDescription(e.target.value)}
+        />
+
+        <select
+          className="w-full p-3 border border-gray-200 rounded-xl mb-4"
+          value={templateType}
+          onChange={(e) => setTemplateType(e.target.value)}
+        >
+          <option value="">Select Template</option>
+          <option value="service">Service</option>
+          <option value="product">Product</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+
+        <button
+          className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition disabled:opacity-50"
+          onClick={handleAnalysis}
+          disabled={loading}
+        >
+          {loading ? "Analyzing..." : "Analyze"}
+        </button>
+      </div>
+
       {loading && (
-        <div>
-          <h2>Analyzing your resume...</h2>
-          <p>{joke}</p>
+        <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto mb-8 text-center">
+          <h2 className="text-2xl font-['Playfair_Display'] text-[#2d3a2e] mb-4">
+            Analyzing your resume...
+          </h2>
+          <p className="text-gray-500 italic">{joke}</p>
         </div>
       )}
+
       {report && (
-        <div>
-          <h2>Analysis Report</h2>
-          <p>Score: {report.score}</p>
-          <p>Job Title: {report.jobTitle}</p>
-          <p>Template Type: {report.templateType}</p>
-          <p>Summary: {report.summary}</p>
-          <p>Analyzed At: {report.analyzedAt}</p>
+        <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl font-['Playfair_Display'] text-[#2d3a2e] text-center mb-4">
+            Analysis Report
+          </h2>
 
-          <h3>Matched Skills</h3>
-          <ul>
+          <p className="text-6xl font-bold text-[#3d5a3e] text-center mb-6">
+            {report.score}
+          </p>
+
+          <p className="text-gray-500 text-center mb-6">{report.summary}</p>
+
+          <p className="text-sm text-gray-400 mb-1">
+            Job Title: {report.jobTitle}
+          </p>
+          <p className="text-sm text-gray-400 mb-1">
+            Template: {report.templateType}
+          </p>
+          <p className="text-sm text-gray-400 mb-6">
+            Analyzed: {report.analyzedAt}
+          </p>
+
+          <h3 className="text-lg font-semibold text-[#2d3a2e] mb-2">
+            Matched Skills
+          </h3>
+          <div className="flex flex-wrap gap-2 mb-6">
             {report.matchedSkills.split(", ").map((skill, index) => (
-              <li key={index}>{skill}</li>
+              <span
+                key={index}
+                className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+              >
+                {skill}
+              </span>
             ))}
-          </ul>
+          </div>
 
-          <h3>Missed Skills</h3>
-          <ul>
+          <h3 className="text-lg font-semibold text-[#2d3a2e] mb-2">
+            Missed Skills
+          </h3>
+          <div className="flex flex-wrap gap-2 mb-6">
             {report.missedSkills.split(", ").map((skill, index) => (
-              <li key={index}>{skill}</li>
+              <span
+                key={index}
+                className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm"
+              >
+                {skill}
+              </span>
             ))}
-          </ul>
+          </div>
 
-          <h3>Improved Content</h3>
-          <p>{report.improvedContent}</p>
-          <button onClick={handleDownload}>Download Improved Resume</button>
+          <button
+            className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition"
+            onClick={handleDownload}
+          >
+            Download Improved Resume
+          </button>
         </div>
-      )}{" "}
+      )}
     </div>
   );
 };

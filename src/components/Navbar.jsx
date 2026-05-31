@@ -18,12 +18,16 @@ const NavBar = () => {
 
   // return belongs to NavBar, NOT inside handleLogout
   return (
-    <div style={{ backgroundColor: "lightgray", padding: "10px" }}>
-      <Link to="/upload">Upload</Link>
-      <Link to="/analysis">Dashboard</Link>
-      <button onClick={handleLogout}>Logout</button>
+  <div className="bg-[#3d5a3e] p-4 flex justify-between items-center">
+    <div>
+      <Link className="text-white mr-6 hover:text-gray-200" to="/upload">Upload</Link>
+      <Link className="text-white mr-6 hover:text-gray-200" to="/analysis">Dashboard</Link>
     </div>
-  );
+    <button className="text-white border border-white rounded-lg px-4 py-2 hover:bg-[#2d4a2e]" onClick={handleLogout}>
+      Logout
+    </button>
+  </div>
+);
 };
 
 export default NavBar;
