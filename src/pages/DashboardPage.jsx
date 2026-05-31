@@ -123,7 +123,7 @@ const DashboardPage = () => {
 
   return (
     <div className="min-h-screen bg-[#faf6f1] p-8">
-      <h1 className="text-4xl font-['Playfair_Display'] text-[#2d3a2e] text-center mb-8">
+      <h1 className="text-4xl font-['Playfair_Display'] text-[#2d3a2e] text-center mb-8 ">
         Dashboard
       </h1>
 
@@ -170,7 +170,7 @@ const DashboardPage = () => {
 
       {loading && (
         <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto mb-8 text-center">
-          <h2 className="text-2xl font-['Playfair_Display'] text-[#2d3a2e] mb-4">
+          <h2 className="text-2xl font-['Playfair_Display'] text-[#2d3a2e] mb-4 font-['Playfair_Display']">
             Analyzing your resume...
           </h2>
           <p className="text-gray-500 italic">{joke}</p>
@@ -228,7 +228,7 @@ const DashboardPage = () => {
           </div>
 
           <button
-            className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition"
+            className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition font-['Playfair_Display']"
             onClick={handleDownload}
           >
             Download Improved Resume

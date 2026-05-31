@@ -31,7 +31,7 @@ function UploadPage() {
           onChange={(e) => setFile(e.target.files[0])}
         />
         <button
-          className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition"
+          className="w-full p-3 bg-[#3d5a3e] text-white rounded-xl hover:bg-[#2d4a2e] transition font-['Playfair_Display']"
           onClick={handleUpload}
         >
           Upload
