@@ -8,6 +8,7 @@ const ROLES = [
   { num: "03", title: "Hybrid", desc: "A bit of both — and proud of it.", tags: "FOUNDER · SOLO · STUDIO" },
 ];
 
+// home page
 function FlowerDrop({ file, onDrop, onDragOver, onDragLeave, isDragging, onClick }) {
   return (
     <div
