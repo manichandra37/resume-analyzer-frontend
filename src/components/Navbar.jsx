@@ -26,7 +26,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className="flex items-center justify-between px-6 flex-shrink-0"
+      className="flex items-center justify-between px-6 shrink-0"
       style={{ height: 56, background: "#FFFFFF", borderBottom: "1px solid #E8E4DC", zIndex: 10 }}
     >
       <Link
