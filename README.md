@@ -54,7 +54,8 @@ src/
 ├── pages/              # Page components
 │   ├── LoginPage.jsx   # Login and Register forms
 │   ├── UploadPage.jsx  # Resume file upload
-│   └── DashboardPage.jsx  # Analysis form, results, and download
+│   ├── DashboardPage.jsx  # Analysis form, results, and download
+│   └── HomePage # Analysis Screen
 ├── services/
 │   └── api.js          # Axios instance and API functions
 ├── App.jsx             # Root component with routing
