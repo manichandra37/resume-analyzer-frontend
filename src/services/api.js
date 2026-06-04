@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://resume-analyzer-production-ace9.up.railway.app/api",
 });
 
 export const loginUser = (email, password) => {
