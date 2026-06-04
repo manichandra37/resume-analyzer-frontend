@@ -92,21 +92,6 @@ const NavBar = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <span
-          className="flex items-center gap-1.5"
-          style={{ fontSize: "0.82rem", color: "#7A8A7A" }}
-        >
-          <span
-            style={{
-              width: 7,
-              height: 7,
-              borderRadius: "50%",
-              background: "#4A9A4A",
-              display: "inline-block",
-            }}
-          />
-          free until 30 jun
-        </span>
         {token ? (
           <button
             onClick={handleLogout}
