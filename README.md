@@ -8,6 +8,10 @@ A modern React-based frontend for the AI Resume Analyzer application. Upload you
 
 ---
 
+# Backend repo: [resume-analyzer](https://github.com/manichandra37/resume-analyzer)
+
+---
+
 ## Features
 
 - **Authentication** — Login and Register with JWT-based authentication
